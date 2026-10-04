@@ -8,7 +8,7 @@
 ARG DOCKER_IMAGE_VERSION=
 
 # Define software versions.
-ARG HANDBRAKE_VERSION=1.11.2
+ARG HANDBRAKE_VERSION=nightly-20260215-ccd912758
 ARG LIBVA_VERSION=2.23.0
 ARG INTEL_VAAPI_DRIVER_VERSION=2.4.1
 ARG GMMLIB_VERSION=22.9.0
@@ -18,7 +18,7 @@ ARG INTEL_ONEVPL_GPU_RUNTIME_VERSION=25.4.6
 ARG CPU_FEATURES_VERSION=0.11.0
 
 # Define software download URLs.
-ARG HANDBRAKE_URL=https://github.com/HandBrake/HandBrake/releases/download/${HANDBRAKE_VERSION}/HandBrake-${HANDBRAKE_VERSION}-source.tar.bz2
+ARG HANDBRAKE_URL=https://github.com/HandBrake/HandBrake.git
 ARG LIBVA_URL=https://github.com/intel/libva/releases/download/${LIBVA_VERSION}/libva-${LIBVA_VERSION}.tar.bz2
 ARG INTEL_VAAPI_DRIVER_URL=https://github.com/intel/intel-vaapi-driver/releases/download/${INTEL_VAAPI_DRIVER_VERSION}/intel-vaapi-driver-${INTEL_VAAPI_DRIVER_VERSION}.tar.bz2
 ARG GMMLIB_URL=https://github.com/intel/gmmlib/archive/intel-gmmlib-${GMMLIB_VERSION}.tar.gz
