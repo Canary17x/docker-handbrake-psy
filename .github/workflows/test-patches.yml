@@ -1,10 +1,6 @@
 name: test-patches
 on:
   workflow_dispatch:
-    inputs:
-      ref:
-        description: HandBrake branch or commit
-        default: master
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -12,6 +8,15 @@ jobs:
       - uses: actions/checkout@v4
       - run: |
           git clone https://github.com/HandBrake/HandBrake.git HandBrake
-          git -C HandBrake checkout "${{ inputs.ref }}"
-          git -C HandBrake log -1 --format=%h
-          bash psy/patch.sh HandBrake
+          for weeks in $(seq 0 60); do
+            d=$(date -d "-$((weeks*7)) days" +%Y-%m-%d)
+            h=$(git -C HandBrake rev-list -n1 --before="$d" origin/master)
+            git -C HandBrake checkout -q -f "$h"
+            git -C HandBrake clean -fdxq
+            if bash psy/patch.sh HandBrake >/dev/null 2>&1; then
+              echo "WORKS: week of $d -> ${h:0:9}"
+              exit 0
+            fi
+            echo "fails: week of $d (${h:0:9})"
+          done
+          exit 1
