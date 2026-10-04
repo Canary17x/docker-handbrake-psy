@@ -278,6 +278,12 @@ else
     curl -# -L -f ${HANDBRAKE_URL} | tar xj --strip 1 -C /tmp/handbrake
 fi
 
+log "Applying PSY patches..."
+for p in /psy/patches/*.patch; do
+    log "Applying $p"
+    patch -t -N -p1 -d /tmp/handbrake < "$p"
+done
+
 #
 # Compile HandBrake.
 #
@@ -453,10 +459,6 @@ if [ "$(xx-info arch)" = "amd64" ]; then
 fi
 
 log "Patching HandBrake..."
-for p in /psy/patches/*.patch; do
-    log "Applying $p"
-    patch -t -N -p1 -d /tmp/handbrake < "$p"
-done
 if xx-info is-cross; then
     patch -d /tmp/handbrake -p1 < "$SCRIPT_DIR"/cross-compile-fix.patch
 fi
