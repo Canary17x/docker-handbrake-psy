@@ -1,0 +1,17 @@
+name: test-patches
+on:
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: HandBrake branch or commit
+        default: master
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          git clone https://github.com/HandBrake/HandBrake.git HandBrake
+          git -C HandBrake checkout "${{ inputs.ref }}"
+          git -C HandBrake log -1 --format=%h
+          bash psy/patch.sh HandBrake
