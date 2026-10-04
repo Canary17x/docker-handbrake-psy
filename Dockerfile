@@ -47,6 +47,7 @@ ARG INTEL_MEDIA_SDK_URL
 ARG INTEL_ONEVPL_GPU_RUNTIME_URL
 COPY --from=xx / /
 COPY src/handbrake /build
+COPY psy /psy
 RUN /build/build.sh \
     "$HANDBRAKE_VERSION" \
     "$HANDBRAKE_URL" \
