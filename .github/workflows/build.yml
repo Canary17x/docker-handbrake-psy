@@ -18,4 +18,4 @@
            with:
              context: .
              push: true
-             tags: ghcr.io/canary17x/handbrake-psy:latest
+             tags: ghcr.io/canary17x/handbrake-psy:tritium
