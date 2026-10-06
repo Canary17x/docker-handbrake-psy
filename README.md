@@ -1,3 +1,9 @@
+About the patches:
+
+SVT-AV1-Tritium is a fork of SVT-AV1-HDR aiming to incorporate features from SVT-AV1-PSYEX and SVT-AV1-Essential. Most notably, SVT-AV1-Tritium has scene detection and auto tiling from Essential.
+
+SVT-AV1-Tritium (and SVT-AV1-HDR) is the Scalable Video Technology for AV1 (SVT-AV1 Encoder) with perceptual enhancements for psychovisually optimal SDR and HDR AV1 encoding. The goal is to create the best encoding implementation for perceptual quality with AV1, with additional optimizations for HDR encoding and content with film grain.
+
 # Docker container for HandBrake
 [![Release](https://img.shields.io/github/release/jlesage/docker-handbrake.svg?logo=github&style=for-the-badge)](https://github.com/jlesage/docker-handbrake/releases/latest)
 [![Docker Image Size](https://img.shields.io/docker/image-size/jlesage/handbrake/latest?logo=docker&style=for-the-badge)](https://hub.docker.com/r/jlesage/handbrake/tags)
